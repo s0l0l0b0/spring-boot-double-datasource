@@ -1,11 +1,7 @@
 package com.tapusd.demo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
-@Entity
 public class Post {
-    @Id
     private Long id;
     private Long accountId;
     private String title;
