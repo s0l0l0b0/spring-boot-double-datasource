@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
-public class SecondaryDBConfig {
+public class MultiDBConfig {
 
     @Primary
     @Bean(name = "dataSource")
@@ -28,16 +28,5 @@ public class SecondaryDBConfig {
     @ConfigurationProperties(prefix = "spring.datasource.druid.two")
     public DataSource secondaryDataSource() {
         return DruidDataSourceBuilder.create().build();
-    }
-
-    @Primary
-    @Bean(name = "jdbcTemplate")
-    public JdbcTemplate jdbcTemplate() {
-        return new JdbcTemplate(secondaryDataSource());
-    }
-
-    @Bean(name = "secondaryJdbcTemplate")
-    public JdbcTemplate secondaryJdbcTemplate() {
-        return new JdbcTemplate(secondaryDataSource());
     }
 }
