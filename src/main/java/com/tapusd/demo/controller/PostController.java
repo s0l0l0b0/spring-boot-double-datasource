@@ -1,6 +1,6 @@
 package com.tapusd.demo.controller;
 
-import com.tapusd.demo.domain.Post;
+import com.tapusd.demo.domain_model.Post;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
-@RequestMapping("/posts")
+//@RestController
+//@RequestMapping("/posts")
 public class PostController {
 
     private final JdbcTemplate jdbcTemplate;

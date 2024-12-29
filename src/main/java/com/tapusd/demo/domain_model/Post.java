@@ -1,4 +1,4 @@
-package com.tapusd.demo.domain;
+package com.tapusd.demo.domain_model;
 
 
 public class Post {

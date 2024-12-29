@@ -1,78 +1,78 @@
-package com.tapusd.demo.config;
-
-import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.JdbcTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.sql.DataSource;
-
-@Configuration
-@EnableTransactionManagement
-public class SecondaryDBConfig {
-
-//    @Value("${secondary.datasource.url}")
-//    private String url;
+//package com.tapusd.demo.config;
 //
-//    @Value("${secondary.datasource.username}")
-//    private String username;
+//import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
+//import com.zaxxer.hikari.HikariConfig;
+//import com.zaxxer.hikari.HikariDataSource;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.boot.context.properties.ConfigurationProperties;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.annotation.Primary;
+//import org.springframework.jdbc.core.JdbcTemplate;
+//import org.springframework.jdbc.support.JdbcTransactionManager;
+//import org.springframework.transaction.PlatformTransactionManager;
+//import org.springframework.transaction.annotation.EnableTransactionManagement;
 //
-//    @Value("${secondary.datasource.password}")
-//    private String password;
+//import javax.sql.DataSource;
 //
-//    @Value("${secondary.datasource.driver-class-name}")
-//    private String driverClassName;
+//@Configuration
+//@EnableTransactionManagement
+//public class SecondaryDBConfig {
 //
-//    @Bean(name = "secondaryDataSource")
-//    public DataSource secondaryDataSource() {
-//        HikariConfig hikariConfig = new HikariConfig();
-//        hikariConfig.setJdbcUrl(url);
-//        hikariConfig.setUsername(username);
-//        hikariConfig.setPassword(password);
-//        hikariConfig.setDriverClassName(driverClassName);
-//        hikariConfig.setMinimumIdle(5);
-//        hikariConfig.setMaximumPoolSize(20);  // Set the max pool size, you can adjust based on your needs
-//        hikariConfig.setPoolName("SecondaryHikariPool");
-//
-//        // Additional HikariCP properties
-//        hikariConfig.setConnectionTimeout(30000);  // Connection timeout in milliseconds
-//        hikariConfig.setIdleTimeout(600000);  // Idle timeout in milliseconds (10 minutes)
-//        hikariConfig.setMaxLifetime(1800000);  // Max lifetime of a connection (30 minutes)
-//
-//        return new HikariDataSource(hikariConfig);
+////    @Value("${secondary.datasource.url}")
+////    private String url;
+////
+////    @Value("${secondary.datasource.username}")
+////    private String username;
+////
+////    @Value("${secondary.datasource.password}")
+////    private String password;
+////
+////    @Value("${secondary.datasource.driver-class-name}")
+////    private String driverClassName;
+////
+////    @Bean(name = "secondaryDataSource")
+////    public DataSource secondaryDataSource() {
+////        HikariConfig hikariConfig = new HikariConfig();
+////        hikariConfig.setJdbcUrl(url);
+////        hikariConfig.setUsername(username);
+////        hikariConfig.setPassword(password);
+////        hikariConfig.setDriverClassName(driverClassName);
+////        hikariConfig.setMinimumIdle(5);
+////        hikariConfig.setMaximumPoolSize(20);  // Set the max pool size, you can adjust based on your needs
+////        hikariConfig.setPoolName("SecondaryHikariPool");
+////
+////        // Additional HikariCP properties
+////        hikariConfig.setConnectionTimeout(30000);  // Connection timeout in milliseconds
+////        hikariConfig.setIdleTimeout(600000);  // Idle timeout in milliseconds (10 minutes)
+////        hikariConfig.setMaxLifetime(1800000);  // Max lifetime of a connection (30 minutes)
+////
+////        return new HikariDataSource(hikariConfig);
+////    }
+////
+////    @Bean(name = "secondaryJdbcTemplate")
+////    public JdbcTemplate secondaryJdbcTemplate() {
+////        return new JdbcTemplate(secondaryDataSource());
+////    }
+////
+////    @Bean(name = "secondaryTransactionManager")
+////    public PlatformTransactionManager secondaryTransactionManager() {
+////        return new JdbcTransactionManager(secondaryDataSource());
+////    }
+//    @Primary
+//    @Bean
+//    @ConfigurationProperties("spring.datasource.druid.one")
+//    public DataSource dataSourceOne(){
+//        return DruidDataSourceBuilder.create().build();
+//    }
+//    @Bean
+//    @ConfigurationProperties("spring.datasource.druid.two")
+//    public DataSource dataSourceTwo(){
+//        return DruidDataSourceBuilder.create().build();
 //    }
 //
 //    @Bean(name = "secondaryJdbcTemplate")
 //    public JdbcTemplate secondaryJdbcTemplate() {
-//        return new JdbcTemplate(secondaryDataSource());
+//        return new JdbcTemplate(dataSourceTwo());
 //    }
-//
-//    @Bean(name = "secondaryTransactionManager")
-//    public PlatformTransactionManager secondaryTransactionManager() {
-//        return new JdbcTransactionManager(secondaryDataSource());
-//    }
-    @Primary
-    @Bean
-    @ConfigurationProperties("spring.datasource.druid.one")
-    public DataSource dataSourceOne(){
-        return DruidDataSourceBuilder.create().build();
-    }
-    @Bean
-    @ConfigurationProperties("spring.datasource.druid.two")
-    public DataSource dataSourceTwo(){
-        return DruidDataSourceBuilder.create().build();
-    }
-
-    @Bean(name = "secondaryJdbcTemplate")
-    public JdbcTemplate secondaryJdbcTemplate() {
-        return new JdbcTemplate(dataSourceTwo());
-    }
-}
+//}
