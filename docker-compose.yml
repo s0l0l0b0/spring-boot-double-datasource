@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:8.0.22
+    container_name: mysql
+    restart: on-failure
+    ports:
+      - 13306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 4321
+      MYSQL_USER: tapusd
+      MYSQL_PASSWORD: 4321
+      TZ: Asia/Dhaka
+
+    # fixing mysql high memory usage in latest manjaro release
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
