@@ -6,6 +6,7 @@ multiple datasource and using multiple instance of mybatis mapper configuration.
 - [x] Spring Boot 2.x.x
 - [x] Java 1.8 (jdk 8)
 - [x] Mybatis Plus (baomidou)
+- [x] Druid (Connection Pool)
 - [x] Mysql
 
 ## How to Run
