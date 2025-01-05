@@ -4,13 +4,13 @@ server:
 spring:
   application:
     name: demo
-#  datasource:
-#    url: jdbc:mysql://localhost:13306/db1
-#    username: root
-#    password: 4321
-#    druid:
-#      two:
-#        url: jdbc:mysql://localhost:13306/db2
-#        username: root
-#        password: 4321
+  datasource:
+    url: jdbc:mysql://localhost:13306/db1
+    username: root
+    password: 4321
+    druid:
+      two:
+        url: jdbc:mysql://localhost:13306/db2
+        username: root
+        password: 4321
 
