@@ -1,7 +1,14 @@
 package com.tapusd.demo.domain;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "post")
 public class Post {
+    @Id
     private Long id;
     private Long accountId;
     private String title;

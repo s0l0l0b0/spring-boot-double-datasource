@@ -5,14 +5,12 @@ spring:
   application:
     name: demo
   datasource:
-    url: jdbc:mysql://localhost:13306/test
-    username: root
-    password: 4321
-    driver-class-name: com.mysql.jdbc.Driver
-
-secondary:
-  datasource:
-    url: jdbc:mysql://localhost:13306/test2
-    username: root
-    password: 4321
-    driver-class-name: com.mysql.jdbc.Driver
+      druid:
+        one:
+          url: jdbc:mysql://localhost:13306/test
+          username: root
+          password: 4321
+        two:
+          url: jdbc:mysql://localhost:13306/test2
+          username: root
+          password: 4321
